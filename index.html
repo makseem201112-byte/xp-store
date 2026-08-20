@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Server Cloner - XP Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One:wght@300;400;500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <i class="fab fa-discord"></i>
+                <span>XP Store</span>
+            </div>
+            <div class="navbar-links">
+                <a href="#" class="nav-link active">Cloner</a>
+                <a href="#" class="nav-link">Store</a>
+                <a href="#" class="nav-link">Status</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <h1 class="main-title">DISCORD SERVER CLONER</h1>
+                <p class="subtitle">XP Store Premium Tool v2.0</p>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="main-card">
+            <!-- Token Section -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-key"></i>
+                    <h2>توكن Discord</h2>
+                </div>
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="token" placeholder="أدخل توكن Discord الخاص بك">
+                        <button class="toggle-password" onclick="togglePassword()">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <button id="verifyBtn" class="btn btn-verify">
+                        <i class="fas fa-check-circle"></i>
+                        تحقق من التوكن
+                    </button>
+                </div>
+                <div id="userInfo" class="user-info hidden">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <span id="userName"></span>
+                        <span class="user-status">متصل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servers Selection -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-server"></i>
+                    <h2>اختيار السيرفرات</h2>
+                </div>
+                <div class="servers-grid">
+                    <div class="server-select-group">
+                        <label class="select-label">
+                            <i class="fas fa-arrow-right"></i>
+                            سيرفر المصدر
+                        </label>
+                        <select id="sourceServer" class="custom-select">
+                            <option value="">اختر سيرفر المصدر</option>
+                        </select>
+                    </div>
+                    <div class="server-select-group">
+                        <label class="select-label">
+                            <i class="fas fa-bullseye"></i>
+                            سيرفر الهدف
+                        </label>
+                        <select id="targetServer" class="custom-select">
+                            <option value="">اختر سيرفر الهدف</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Button -->
+            <div class="action-section">
+                <button id="cloneBtn" class="btn btn-clone" disabled>
+                    <i class="fas fa-rocket"></i>
+                    بدء عملية النسخ
+                </button>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section hidden" id="progressSection">
+                <div class="progress-header">
+                    <i class="fas fa-tasks"></i>
+                    <h3>تقدم العملية</h3>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                        <div class="progress-shine"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span id="progressText">0%</span>
+                        <span id="progressStatus">جاري التحضير...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Log Section -->
+            <div class="log-section">
+                <div class="log-header">
+                    <i class="fas fa-terminal"></i>
+                    <h3>سجل العمليات</h3>
+                    <button class="clear-logs" onclick="clearLogs()">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                <div id="logArea" class="log-area">
+                    <div class="log-entry info">
+                        <i class="fas fa-info-circle"></i>
+                        <span>مرحباً بك في Discord Server Cloner</span>
+                    </div>
+                    <div class="log-entry info">
+                        <i class="fas fa-info-circle"></i>
+                        <span>أدخل التوكن للبدء</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <i class="fas fa-code"></i>
+                <span>Coded by XP Store</span>
+                <span class="separator">|</span>
+                <span>Discord Server Cloner</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
